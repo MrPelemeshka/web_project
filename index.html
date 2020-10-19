@@ -2,23 +2,34 @@
 <html>
 
 <head>
-    <title>My first Vue app</title>
+    <title>Web1_11</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+<script>
+    var vm = new Vue({
+        // опции
+    })
+
+    function onSubmit() {
+        let name = document.createElement('span');
+        name.innerHTML = '{{message}} {{message1}}'
+        list.append(name);
+    };
+</script>
 
 <body>
-    <div id="app">
-        {{ message }}
+    <div class="block">
+        <form v-on:submit.prevent="onSubmit">
+            <p><b>Какие ученики присутстыуют на паре?</b></p>
+            <p><input v-model="message" placeholder="Фамилия">
+                <Br>
+                <input v-model="message1" placeholder="Имя">
+                <Br>
+                <p><input type="submit"></p>
+                <p id="list"></p>
+        </form>
     </div>
-
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello, Vue!'
-            }
-        })
-    </script>
 </body>
 
 </html>
